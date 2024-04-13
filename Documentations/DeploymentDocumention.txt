@@ -1,0 +1,44 @@
+Prerequisites: Before you can run the Health Monitoring System, you need to ensure that the 
+following software is installed on your machine:
+
+Java Development Kit (JDK): The application is written in Java, so you need the JDK to compile 
+and run it. You can download the JDK from Oracle's website and follow their installation guide.
+
+PostgreSQL: The application uses a PostgreSQL database to store data. You can download PostgreSQL 
+from its official website and follow the installation guide provided there.
+
+
+Database Setup: After installing PostgreSQL, you need to set up the database for the application:
+
+Open the PostgreSQL command line interface (psql) and create a new database using the command 
+CREATE DATABASE Health;.
+
+Run the SQL scripts provided with the application to create the necessary tables in the database. 
+You can also do this by using the command \i path_to_sql_file in psql, replacing path_to_sql_file 
+with the actual path to the SQL file.
+
+
+
+Application Configuration: Before you can run the application, you need to configure it to 
+connect to the database:
+
+Open the DatabaseConnection.java file in a text editor.
+Update the DATABASE_URL, USERNAME, and PASSWORD constants with the details of 
+the database you just created.
+
+
+
+Compiling the Application: Now you're ready to compile the application:
+
+Open a terminal and navigate to the directory containing the source code.
+Hit the run button or run the command javac HealthMonitoringApp.java to compile the application. 
+This will create a HealthMonitoringApp.class file in the same directory.
+
+
+
+Running the Application: Finally, you can run the application:
+
+In the terminal, run the command java HealthMonitoringApp, or click the run button on the top of the VS Code 
+screen.
+The application will start and display a prompt in the terminal. You can now register a 
+new user or log in to an existing one.

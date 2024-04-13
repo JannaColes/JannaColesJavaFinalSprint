@@ -1,0 +1,149 @@
+1. Overview
+The Health Monitoring System is a comprehensive, Java-based application that provides a platform for 
+users to track and manage their health metrics. It caters to two types of users: patients and doctors. 
+Patients can monitor their health data, manage medication reminders, and receive personalized health 
+recommendations. Doctors, on the other hand, can access their patients' profiles, view their health data, 
+and provide informed health management advice. This system aims to streamline health management and 
+foster effective communication between patients and healthcare providers.
+
+
+2. System Features
+
+User Authentication: The system provides a secure mechanism for user registration and login. 
+It differentiates between patient and doctor roles, ensuring appropriate access rights and 
+functionalities for each user type.
+
+Health Data Entry and Visualization: Patients can manually input their daily health metrics, 
+including weight, height, steps taken, and heart rate. The system stores this data and allows 
+patients to view their historical data, enabling them to track their health progress over time.
+
+Medication Management: The system allows users to set up and manage medication reminders. 
+Users can specify the medication details, dosage, and intake timing, ensuring they adhere to 
+their medication schedule.
+
+Recommendation Engine: The system features a recommendation engine that generates personalized 
+health improvement suggestions based on the user's health data inputs.
+
+Doctor's Portal: The system provides a dedicated portal for doctors, where they can access their 
+patients' profiles, view their health data, and make informed decisions regarding their health management.
+
+3. Class Descriptions
+
+UserDao:
+This class handles all database interactions related to user accounts. It includes methods for 
+creating a new user, authenticating a user's credentials, and retrieving user details from the database.
+
+
+HealthDataDao:
+This class manages all CRUD (Create, Read, Update, Delete) operations related to health data. It 
+includes methods to insert new health records, update existing data, retrieve a user's historical data, 
+and delete records.
+
+
+MedicineReminderManager:
+This class manages the medication reminders. It allows users to add new reminders, update existing 
+reminders, fetch reminders for display, and delete old reminders.
+
+
+DoctorPortalDao:
+This class facilitates doctor interactions with the system. It allows doctors to assign patients to 
+themselves, access a patient's health data, remove patients from their care, and send health 
+recommendations directly to patients.
+
+RecommendationSystem:
+This class analyzes health data to provide health improvement recommendations. It generates and 
+logs recommendations based on user-specific data like heart rate and activity levels.
+
+
+
+4. Starting the Application
+
+Prerequisites:
+Java JDK installed.
+PostgreSQL server running with the required database and tables created.
+
+
+Running the Application:
+Compile the Java code using your preferred IDE or the command line with javac HealthMonitoringApp.java.
+Run the application using java HealthMonitoringApp.
+The console will display prompts for you to either log in or register a new account. 
+Follow these prompts to start using the application.
+
+
+Class Diagram 
+-----------------------------------------------------
+|                    User                           |
+-----------------------------------------------------
+| - id: int                                        |
+| - firstName: String                              |
+| - lastName: String                               |
+| - email: String                                  |
+| - password: String                               |
+| - isDoctor: boolean                              |
+-----------------------------------------------------
+| +login(): boolean                                |
+| +logout(): void                                  |
+-----------------------------------------------------
+
+-----------------------------------------------------
+|                    Doctor                         |
+-----------------------------------------------------
+| Inherits from User                               |
+| - licenseNumber: String                          |
+| - specialization: String                         |
+-----------------------------------------------------
+| +assignPatient(patient: User): void              |
+| +removePatient(patient: User): void              |
+-----------------------------------------------------
+
+-----------------------------------------------------
+|                 HealthData                        |
+-----------------------------------------------------
+| - id: int                                        |
+| - userId: int                                    |
+| - weight: double                                 |
+| - height: double                                 |
+| - steps: int                                     |
+| - heartRate: int                                 |
+| - date: LocalDate                                |
+-----------------------------------------------------
+| +updateData(): void                              |
+-----------------------------------------------------
+
+-----------------------------------------------------
+|               MedicineReminder                    |
+-----------------------------------------------------
+| - id: int                                        |
+| - userId: int                                    |
+| - medicineName: String                           |
+| - dosage: String                                 |
+| - schedule: String                               |
+| - startDate: LocalDate                           |
+| - endDate: LocalDate                             |
+-----------------------------------------------------
+| +setReminder(): void                             |
+| +cancelReminder(): void                          |
+-----------------------------------------------------
+
+-----------------------------------------------------
+|                 Recommendation                    |
+-----------------------------------------------------
+| - id: int                                        |
+| - userId: int                                    |
+| - text: String                                   |
+| - date: LocalDate                                |
+-----------------------------------------------------
+| +addRecommendation(): void                       |
+| +removeRecommendation(): void                    |
+-----------------------------------------------------
+
+
+User: Represents a generic user in the system, containing basic identity and authentication properties.
+
+Doctor: Inherits properties from User and includes additional attributes and methods pertinent to a doctor, such as managing patients.
+
+HealthData: Stores health metrics related to a user, such as weight, heart rate, etc.
+
+MedicineReminder: Manages reminders for medicine intake for a user.
+
+Recommendation: Stores and manages health-related recommendations for a user.

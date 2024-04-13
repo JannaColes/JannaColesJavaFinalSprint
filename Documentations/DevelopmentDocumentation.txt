@@ -1,0 +1,66 @@
+Javadocs: Javadocs are included in the source code as comments and provide a detailed 
+explanation of the purpose and functionality of each class and method. They can be generated 
+into an HTML format using the javadoc tool included in the JDK.
+
+
+Source Code Structure: The source code consists of several Java files, each containing a 
+single class. The role of each class is as follows:
+
+UserDao.java: Manages all database interactions related to user accounts.
+
+HealthDataDao.java: Handles CRUD operations related to health data.
+
+MedicineReminderManager.java: Manages reminders for medication intake.
+
+DoctorPortalDao.java: Facilitates doctor interactions with the system, specifically around 
+managing patient lists.
+
+RecommendationSystem.java: Analyzes health data to provide health improvement recommendations.
+
+User.java: Represents a user in the system, including their details and methods related to 
+their functionality.
+
+MedicineReminder.java: Represents a medicine reminder in the system, including details like 
+medicine name, dosage, and timing.
+
+HealthMonitoringApp.java: The main class that runs the application and handles user interactions.
+
+
+HealthData.java: Represents a health data record in the system, including details like height, 
+steps, heart rate, and date.
+
+Doctor.java: Represents a doctor in the system, including their details and methods related 
+to their functionality.
+
+DatabaseConnection.java: Manages the connection to the database, including opening and 
+closing connections.
+
+
+Even though the files are not organized into packages, their naming and functionality are 
+designed to make it easy to understand the role of each class in the application. 
+
+
+Build Process: The project can be compiled using any Java IDE or the command line. To compile 
+the project from the command line, navigate to the source code directory and run 
+javac HealthMonitoringApp.java. This will compile the HealthMonitoringApp class 
+and any classes it depends on.
+
+Compiler Time Dependencies: The project depends on the Java JDK and a PostgreSQL JDBC driver 
+for database interactions. These dependencies need to be available at compile time.
+
+
+Development Standards: The project follows standard Java coding conventions, including 
+proper indentation, camelCase naming conventions, and comprehensive Javadocs for all 
+classes and methods. All code should be thoroughly tested before being committed.
+
+
+Setting Up a Database for Development: The application uses a PostgreSQL database. To 
+set up a database for development, install PostgreSQL, create a new database, and run the 
+provided SQL scripts to create the necessary tables. The database connection details 
+(URL, username, password) should be updated in the DatabaseUtil class.
+
+Getting the Source Code from the Repository: The source code is stored in a Git repository. 
+To get the source code, you need to clone the repository using the command git clone <repository-url>.
+Replace <repository-url> with the actual URL of the repository. Or you can log into GitHub and clone or
+download the repository if you are not using the terminal and commands.
+
